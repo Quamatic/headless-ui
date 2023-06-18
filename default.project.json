@@ -1,6 +1,13 @@
 {
-  "name": "headless-ui",
+  "name": "headless-ui-test",
   "tree": {
-    "$path": "src"
+      "$className": "DataModel",
+      "ReplicatedStorage": {
+          "$className": "ReplicatedStorage",
+          "$path": "Packages",
+          "ReactHeadless": {
+            "$path": "src"
+        }
+      }
   }
 }
