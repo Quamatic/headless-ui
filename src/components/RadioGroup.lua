@@ -18,7 +18,7 @@ local useCallbackRef = require(src.ReactHeadless.hooks.useCallbackRef)
 local useControllableState = require(src.ReactHeadless.hooks.useControllableState)
 local useFlags = require(src.ReactHeadless.hooks.useFlags)
 local useLatestValue = require(src.ReactHeadless.hooks.useLatestValue)
-local useSyncRefs = require(src.ReactHeadless.hooks.useSyncRefs)
+local useSyncRefs = require(src.ReactHeadless.hooks.useSyncRefs).useSyncRefs
 
 -- Types
 

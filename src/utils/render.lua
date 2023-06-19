@@ -8,7 +8,7 @@ local Error = LuauPolyfill.Error
 
 local Features = {
 	None = 0,
-	FenderStrategy = 1,
+	RenderStrategy = 1,
 	Static = 2,
 }
 
@@ -37,7 +37,7 @@ local function render(options: RenderOptions)
 	local slot = options.slot
 	local defaultTag = options.defaultTag
 	local features = options.features
-	local visible = options.visible or true
+	local visible = if options.visible == nil then true else options.visible
 	local name = options.name
 
 	local props = mergeProps(theirProps, ourProps)
@@ -57,7 +57,7 @@ local function render(options: RenderOptions)
 		end
 	end
 
-	if Boolean.toJSBoolean(bit32.band(featureFlags, Features.FenderStrategy)) then
+	if Boolean.toJSBoolean(bit32.band(featureFlags, Features.RenderStrategy)) then
 		local unmount = props.unmount or true
 		local rest = Object.assign({}, props, { static = Object.None })
 		local strategy = if unmount then RenderStrategy.Unmount else RenderStrategy.Hidden
@@ -229,4 +229,5 @@ end
 return {
 	render = render,
 	forwardWithRefAs = forwardWithRefAs,
+	Features = Features,
 }

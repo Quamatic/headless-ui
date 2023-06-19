@@ -2,11 +2,24 @@ local src = script.Parent.Parent.Parent
 local React = require(src.React)
 local LuauPolyfill = require(src.LuauPolyfill)
 local Array = LuauPolyfill.Array
+local Object = LuauPolyfill.Object
 local Symbol = LuauPolyfill.Symbol
 
 local useCallbackRef = require(script.Parent.useCallbackRef)
 
 local Optional = Symbol("Optional")
+
+local optionalRefs = {}
+
+local function optionalRef<T>(cb: (ref: T) -> (), isOptional: boolean?)
+	if isOptional == nil then
+		isOptional = true
+	end
+
+	optionalRefs[cb] = true
+
+	return cb
+end
 
 local function useSyncRefs<T>(...: React.Ref<T>)
 	local refs = { ... }
@@ -27,10 +40,13 @@ local function useSyncRefs<T>(...: React.Ref<T>)
 	end)
 
 	return if Array.every(refs, function(ref)
-			return ref == nil or ref[Optional] ~= nil
+			return ref == nil or optionalRefs[ref] ~= nil
 		end)
 		then nil
 		else syncRefs
 end
 
-return useSyncRefs
+return {
+	useSyncRefs = useSyncRefs,
+	optionalRef = optionalRef,
+}

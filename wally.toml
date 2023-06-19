@@ -8,5 +8,6 @@ realm = "shared"
 
 [dependencies]
 React = "core-packages/react@17.0.1-rc.19"
+ReactSpring = "chriscerie/react-spring@1.1.6"
 ReactRoblox = "core-packages/react-roblox@17.0.1-rc.19"
 LuauPolyfill = "jsdotlua/luau-polyfill@1.2.3"

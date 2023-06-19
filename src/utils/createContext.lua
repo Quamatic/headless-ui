@@ -36,7 +36,7 @@ local function createContext<T>(options: CreateContextOptions<T>)
 		return React.createElement(Context.Provider, { value = value }, children)
 	end
 
-	return Provider, useContext
+	return Provider, useContext, Context
 end
 
 return createContext
