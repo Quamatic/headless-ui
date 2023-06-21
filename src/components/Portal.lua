@@ -110,7 +110,7 @@ local function PortalFn(props: PortalProps, ref: React.Ref<GuiObject>)
 		end
 
 		if not contains(target, element) then
-			element:SetAttribute("headlessuiportal", true)
+			element:SetAttribute("headlessui_portal", true)
 			element.Parent = target
 		end
 	end, { target, element })

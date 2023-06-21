@@ -56,7 +56,6 @@ local function useControllableState<T>(props: UseControllableStateParams<T>)
 				handleChange(value_ :: T)
 			end
 		else
-			print("A")
 			setUncontrolledProp(nextValue)
 		end
 	end, { isControlled, prop, setUncontrolledProp, handleChange })
