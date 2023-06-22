@@ -1,13 +1,16 @@
 [package]
 name = "quamatic/headless-ui"
-description = "Headless component solution for React"
+description = "Headless components for React"
 version = "0.1.0"
 license = "MIT"
 registry = "https://github.com/UpliftGames/wally-index"
+exclude = ["*"]
+include = ["src", "src/*", "default.project.json", "LICENSE", "README.md", "wally.toml"]
 realm = "shared"
 
 [dependencies]
 React = "core-packages/react@17.0.1-rc.19"
 ReactSpring = "chriscerie/react-spring@1.1.6"
 ReactRoblox = "core-packages/react-roblox@17.0.1-rc.19"
+ReactFloating = "file:../roact-popper"
 LuauPolyfill = "jsdotlua/luau-polyfill@1.2.3"
